@@ -30,8 +30,6 @@
     box-shadow: 0 4px 32px rgba(12,35,64,0.14);
     border-radius: 2px; overflow: hidden;
   }
-
-  /* HEADER */
   .doc-header {
     background: var(--wpi-navy); padding: 28px 40px 24px;
     display: flex; justify-content: space-between; align-items: flex-start;
@@ -70,8 +68,6 @@
     background: var(--wpi-logo-blue); padding: 4px 10px; display: inline-block;
   }
   .brand-rule { height: 4px; background: var(--wpi-cyan); }
-
-  /* SECTIONS */
   .section { padding: 32px 40px; border-bottom: 1px solid #DDE3E8; }
   .section:nth-child(even) { background: var(--paper-warm); }
   .section:last-child { border-bottom: none; }
@@ -86,8 +82,6 @@
     margin-bottom: 20px; line-height: 1.2;
   }
   .section-h2 strong { font-weight: 600; }
-
-  /* FIELDS */
   .field-label {
     font-family: 'Nunito Sans', sans-serif; font-weight: 600;
     font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase;
@@ -96,7 +90,6 @@
   .field-group { margin-bottom: 20px; }
   .field-row { display: grid; gap: 20px; margin-bottom: 20px; }
   .field-row.cols-2 { grid-template-columns: 1fr 1fr; }
-
   input[type="text"], input[type="email"], textarea {
     width: 100%; border: 1px solid #C5CDD4; border-radius: 2px;
     padding: 9px 12px; font-family: 'Nunito Sans', sans-serif;
@@ -108,8 +101,6 @@
   }
   textarea { resize: vertical; min-height: 100px; line-height: 1.6; }
   input.invalid, textarea.invalid { border-color: var(--alert-bd) !important; }
-
-  /* DATE */
   .date-group { display: flex; gap: 12px; align-items: flex-end; max-width: 340px; }
   .date-part { flex: 1; }
   .date-part.year { flex: 1.4; }
@@ -117,8 +108,6 @@
     font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase;
     color: var(--wpi-platinum); margin-top: 4px; text-align: center;
   }
-
-  /* RATING SCALE BOX */
   .rating-scale-box {
     background: var(--paper-warm); border: 1px solid #DDE3E8;
     border-radius: 2px; padding: 16px 20px; margin-bottom: 20px;
@@ -132,8 +121,6 @@
   .rs-num { font-weight: 600; color: var(--wpi-navy); min-width: 16px; }
   .rs-label { font-weight: 600; color: var(--wpi-logo-blue); min-width: 130px; }
   .rs-desc { color: var(--wpi-slate); }
-
-  /* OVERALL RADIO */
   .rating-field { margin-bottom: 24px; }
   .rating-question { font-size: 13.5px; color: var(--wpi-slate); margin-bottom: 12px; }
   .rating-question .required { color: var(--wpi-cyan); margin-left: 2px; }
@@ -165,8 +152,6 @@
   .radio-option label:hover { background: var(--paper-warm); }
   .radio-option input[type="radio"]:checked + label:hover { background: var(--wpi-navy); }
   .rating-field.invalid .radio-group { box-shadow: 0 0 0 2px var(--alert-bd); }
-
-  /* COMPETENCY TABLE */
   .competency-table { width: 100%; border-collapse: collapse; margin-top: 8px; }
   .competency-table thead th {
     background: var(--wpi-navy); color: white;
@@ -191,11 +176,7 @@
   }
   .comp-radio:checked { border-color: var(--wpi-cyan); background: var(--wpi-cyan); box-shadow: inset 0 0 0 3px white; }
   .comp-radio:hover:not(:checked) { border-color: var(--wpi-logo-blue); }
-
-  /* SIG ROW */
   .sig-row { display: grid; grid-template-columns: 1fr 200px; gap: 24px; margin-top: 8px; }
-
-  /* SUBMIT */
   .submit-section {
     padding: 28px 40px; background: var(--paper-warm);
     display: flex; justify-content: space-between; align-items: center;
@@ -219,12 +200,8 @@
   }
   .btn-print:hover { border-color: var(--wpi-logo-blue); color: var(--wpi-logo-blue); }
   .btn-group { display: flex; gap: 12px; }
-
-  /* ERRORS */
   .field-error { color: var(--alert-bd); font-size: 11px; margin-top: 4px; display: none; }
   .field-error.show { display: block; }
-
-  /* SUCCESS */
   .success-overlay {
     display: none; position: fixed; inset: 0;
     background: rgba(12,35,64,0.7); z-index: 100;
@@ -264,8 +241,6 @@
     cursor: pointer; border-radius: 2px;
   }
   .btn-close-success:hover { background: var(--wpi-logo-blue); }
-
-  /* FOOTER */
   .doc-footer {
     background: var(--paper-warm); padding: 16px 40px;
     display: flex; justify-content: space-between; align-items: center;
@@ -273,9 +248,7 @@
   }
   .footer-essence { font-family: 'Source Serif 4', serif; font-style: italic; font-weight: 300; font-size: 13px; color: var(--wpi-blue-60); }
   .footer-meta { font-family: 'Nunito Sans', sans-serif; font-weight: 600; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--wpi-platinum); text-align: right; }
-
   #submitErrorBanner { display:none; margin:0 40px 24px; padding:14px 18px; background:#FFF3F3; border:1px solid #C73E3E; border-radius:2px; color:#C73E3E; font-size:13.5px; line-height:1.6; }
-
   @media (max-width: 600px) {
     .doc-header { flex-direction: column; gap: 16px; }
     .header-right { text-align: left; }
@@ -297,13 +270,9 @@
 </head>
 <body>
 <div class="page-wrapper">
-
   <div class="doc-header">
     <div class="header-left">
-      <div class="logo-text">
-        <div class="logo-icon">W</div>
-        WESTPORT &nbsp;·&nbsp; PROPERTIES
-      </div>
+      <div class="logo-text"><div class="logo-icon">W</div>WESTPORT &nbsp;·&nbsp; PROPERTIES</div>
       <div class="header-eyebrow">Learning &amp; Development</div>
       <div class="header-h1">New Hire Feedback Form</div>
     </div>
@@ -316,41 +285,27 @@
 
   <form id="feedbackForm" novalidate>
 
-    <!-- SECTION 01 -->
     <div class="section">
       <div class="section-eyebrow">Section 01</div>
       <div class="section-h2">New Hire <strong>Details</strong></div>
-
       <div class="field-group">
         <div class="field-label">Evaluator Email <span style="color:var(--wpi-cyan)">*</span></div>
         <input type="email" id="emailAddress" placeholder="your@ussc.com" required>
         <div class="field-error" id="err-email">Please enter your email address.</div>
       </div>
-
       <div class="field-group">
         <div class="field-label">New Hire — Week Of</div>
         <div class="date-group">
-          <div class="date-part">
-            <input type="text" id="weekMM" placeholder="MM" maxlength="2">
-            <div class="date-sublabel">MM</div>
-          </div>
-          <div class="date-part">
-            <input type="text" id="weekDD" placeholder="DD" maxlength="2">
-            <div class="date-sublabel">DD</div>
-          </div>
-          <div class="date-part year">
-            <input type="text" id="weekYYYY" placeholder="YYYY" maxlength="4">
-            <div class="date-sublabel">YYYY</div>
-          </div>
+          <div class="date-part"><input type="text" id="weekMM" placeholder="MM" maxlength="2"><div class="date-sublabel">MM</div></div>
+          <div class="date-part"><input type="text" id="weekDD" placeholder="DD" maxlength="2"><div class="date-sublabel">DD</div></div>
+          <div class="date-part year"><input type="text" id="weekYYYY" placeholder="YYYY" maxlength="4"><div class="date-sublabel">YYYY</div></div>
         </div>
       </div>
-
       <div class="field-group">
         <div class="field-label">New Hire Name <span style="color:var(--wpi-cyan)">*</span></div>
         <input type="text" id="newHireName" placeholder="Full name" required>
         <div class="field-error" id="err-name">Please enter the new hire's name.</div>
       </div>
-
       <div class="field-row cols-2">
         <div>
           <div class="field-label">District Manager <span style="color:var(--wpi-cyan)">*</span></div>
@@ -363,7 +318,6 @@
           <div class="field-error" id="err-mentor">Required.</div>
         </div>
       </div>
-
       <div style="max-width:200px;">
         <div class="field-label">Assessment Score <span style="color:var(--wpi-cyan)">*</span></div>
         <input type="text" id="assessmentScore" placeholder="e.g. 85" required>
@@ -371,11 +325,9 @@
       </div>
     </div>
 
-    <!-- SECTION 02 -->
     <div class="section">
       <div class="section-eyebrow">Section 02</div>
       <div class="section-h2">Overall <strong>Performance</strong></div>
-
       <div class="rating-scale-box">
         <div class="rating-scale-title">Rating Scale</div>
         <div class="rating-scale-row"><span class="rs-num">1</span><span class="rs-label">Unsatisfactory</span><span class="rs-desc">Does not meet basic expectations; needs significant improvement.</span></div>
@@ -384,21 +336,19 @@
         <div class="rating-scale-row"><span class="rs-num">4</span><span class="rs-label">Good</span><span class="rs-desc">Consistently meets and at times exceeds expectations.</span></div>
         <div class="rating-scale-row"><span class="rs-num">5</span><span class="rs-label">Excellent</span><span class="rs-desc">Consistently exceeds expectations; exceptional impact.</span></div>
       </div>
-
       <div class="rating-field" id="rf-overall">
         <div class="rating-question">How would you rate the new hire's overall performance? <span class="required">*</span></div>
         <div class="radio-group">
-          <div class="radio-option"><input type="radio" name="entry.993634690" id="or1" value="1"><label for="or1"><span class="num">1</span><span class="lbl">Unsatisfactory</span></label></div>
-          <div class="radio-option"><input type="radio" name="entry.993634690" id="or2" value="2"><label for="or2"><span class="num">2</span><span class="lbl">Needs Improvement</span></label></div>
-          <div class="radio-option"><input type="radio" name="entry.993634690" id="or3" value="3"><label for="or3"><span class="num">3</span><span class="lbl">Satisfactory</span></label></div>
-          <div class="radio-option"><input type="radio" name="entry.993634690" id="or4" value="4"><label for="or4"><span class="num">4</span><span class="lbl">Good</span></label></div>
-          <div class="radio-option"><input type="radio" name="entry.993634690" id="or5" value="5"><label for="or5"><span class="num">5</span><span class="lbl">Excellent</span></label></div>
+          <div class="radio-option"><input type="radio" name="overallRating" id="or1" value="1"><label for="or1"><span class="num">1</span><span class="lbl">Unsatisfactory</span></label></div>
+          <div class="radio-option"><input type="radio" name="overallRating" id="or2" value="2"><label for="or2"><span class="num">2</span><span class="lbl">Needs Improvement</span></label></div>
+          <div class="radio-option"><input type="radio" name="overallRating" id="or3" value="3"><label for="or3"><span class="num">3</span><span class="lbl">Satisfactory</span></label></div>
+          <div class="radio-option"><input type="radio" name="overallRating" id="or4" value="4"><label for="or4"><span class="num">4</span><span class="lbl">Good</span></label></div>
+          <div class="radio-option"><input type="radio" name="overallRating" id="or5" value="5"><label for="or5"><span class="num">5</span><span class="lbl">Excellent</span></label></div>
         </div>
         <div class="field-error" id="err-overall">Please select an overall rating.</div>
       </div>
     </div>
 
-    <!-- SECTION 03 -->
     <div class="section">
       <div class="section-eyebrow">Section 03</div>
       <div class="section-h2">Strengths &amp; <strong>Top Areas</strong></div>
@@ -409,7 +359,6 @@
       </div>
     </div>
 
-    <!-- SECTION 04 -->
     <div class="section">
       <div class="section-eyebrow">Section 04</div>
       <div class="section-h2">Area for <strong>Improvement</strong></div>
@@ -420,25 +369,17 @@
       </div>
     </div>
 
-    <!-- SECTION 05 -->
     <div class="section">
       <div class="section-eyebrow">Section 05</div>
       <div class="section-h2">Skills &amp; <strong>Competencies</strong></div>
       <div class="rating-question" style="margin-bottom:16px;">Rate the new hire in each area using the 1–5 scale.</div>
-
       <table class="competency-table">
-        <thead>
-          <tr>
-            <th>Competency</th>
-            <th>1</th><th>2</th><th>3</th><th>4</th><th>5</th>
-          </tr>
-        </thead>
+        <thead><tr><th>Competency</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th></tr></thead>
         <tbody id="competencyRows"></tbody>
       </table>
       <div class="field-error" id="err-comp">Please rate all required competencies before submitting.</div>
     </div>
 
-    <!-- SECTION 06 -->
     <div class="section">
       <div class="section-eyebrow">Section 06</div>
       <div class="section-h2">Additional <strong>Comments</strong></div>
@@ -457,7 +398,6 @@
       </div>
     </div>
 
-    <!-- SUBMIT -->
     <div class="submit-section">
       <div style="font-size:12px;color:var(--wpi-platinum);">Fields marked <span style="color:var(--wpi-cyan);">*</span> are required.</div>
       <div class="btn-group">
@@ -466,7 +406,6 @@
       </div>
     </div>
     <div id="submitErrorBanner"></div>
-
   </form>
 
   <div class="doc-footer">
@@ -475,7 +414,6 @@
   </div>
 </div>
 
-<!-- SUCCESS -->
 <div class="success-overlay" id="successOverlay">
   <div class="success-card">
     <div class="success-header">
@@ -484,46 +422,45 @@
     </div>
     <div class="success-body">
       <div class="success-summary" id="successSummary"></div>
-      <div class="success-note">Your response has been recorded in Google Sheets and a confirmation email has been sent.</div>
+      <div class="success-note">Your response has been recorded and an email summary has been sent to jennie.guerrero@westportproperties.net.</div>
       <button class="btn-close-success" onclick="resetForm()">Submit Another Form</button>
     </div>
   </div>
 </div>
 
 <script>
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbz3fBGINLF7RjRpS9e4_JLBCwy_m_r4Hlh-hAQgIy2E1qqKYbtg8E5iP5MzvvEli_74LQ/exec";
+
 const competencies = [
-  { id:"jobKnowledge",      label:"Job Knowledge",                       desc:"Understands job requirements and responsibilities",                  entry:"entry.1712464014", required:true  },
-  { id:"techCallPotential", label:"Technical Skills: CallPotential",     desc:"Proficiency in CallPotential",                                      entry:"entry.213764917",  required:true  },
-  { id:"techSiteLink",      label:"Technical Skills: Sitelink",          desc:"Proficiency in Sitelink",                                           entry:"entry.1423227925", required:true  },
-  { id:"techTools",         label:"Technical Skills: Operation Systems", desc:"Proficiency in required tools, software, and processes",            entry:"entry.449504194",  required:false },
-  { id:"communication",     label:"Communication Skills",                desc:"Ability to clearly convey information and listen to feedback",       entry:"entry.717632191",  required:true  },
-  { id:"problemSolving",    label:"Problem-Solving Skills",              desc:"Effectiveness in identifying issues and implementing solutions",     entry:"entry.1866784316", required:true  },
-  { id:"teamwork",          label:"Teamwork and Collaboration",          desc:"Works well with others and contributes to team success",            entry:"entry.1014644304", required:true  },
-  { id:"adaptability",      label:"Adaptability",                        desc:"Ability to adapt to new situations and learn quickly",              entry:"entry.1947305047", required:true  },
-  { id:"customerService",   label:"Customer Service",                    desc:"Ability to satisfy customers' needs and manage tenant relationships",entry:"entry.838378189",  required:true  },
-  { id:"timeManagement",    label:"Time Management and Attendance",      desc:"Consistently arrives on time, adheres to schedules, meets deadlines",entry:"entry.1285386964", required:true  },
+  { id:"jobKnowledge",      label:"Job Knowledge",                       desc:"Understands job requirements and responsibilities",                   required:true  },
+  { id:"techCallPotential", label:"Technical Skills: CallPotential",     desc:"Proficiency in CallPotential",                                       required:true  },
+  { id:"techSiteLink",      label:"Technical Skills: Sitelink",          desc:"Proficiency in Sitelink",                                            required:true  },
+  { id:"techTools",         label:"Technical Skills: Operation Systems", desc:"Proficiency in required tools, software, and processes",             required:false },
+  { id:"communication",     label:"Communication Skills",                desc:"Ability to clearly convey information and listen to feedback",        required:true  },
+  { id:"problemSolving",    label:"Problem-Solving Skills",              desc:"Effectiveness in identifying issues and implementing solutions",      required:true  },
+  { id:"teamwork",          label:"Teamwork and Collaboration",          desc:"Works well with others and contributes to team success",             required:true  },
+  { id:"adaptability",      label:"Adaptability",                        desc:"Ability to adapt to new situations and learn quickly",               required:true  },
+  { id:"customerService",   label:"Customer Service",                    desc:"Ability to satisfy customers' needs and manage tenant relationships", required:true  },
+  { id:"timeManagement",    label:"Time Management and Attendance",      desc:"Consistently arrives on time, adheres to schedules, meets deadlines", required:true  },
 ];
 
 const ratingLabels = {1:"Unsatisfactory",2:"Needs Improvement",3:"Satisfactory",4:"Good",5:"Excellent"};
 
-// Build competency table
 var tbody = document.getElementById("competencyRows");
 competencies.forEach(function(c) {
   var tr = document.createElement("tr");
   var req = c.required ? ' <span class="comp-required">*</span>' : '';
   var cells = '<td><strong>' + c.label + '</strong>' + req + '<br><span style="font-size:12px;color:var(--wpi-platinum);">' + c.desc + '</span></td>';
   [1,2,3,4,5].forEach(function(n) {
-    cells += '<td class="comp-radio-cell"><input type="radio" class="comp-radio" name="' + c.entry + '" value="' + n + '" aria-label="' + c.label + ' ' + n + '"></td>';
+    cells += '<td class="comp-radio-cell"><input type="radio" class="comp-radio" name="' + c.id + '" value="' + n + '"></td>';
   });
   tr.innerHTML = cells;
   tbody.appendChild(tr);
 });
 
-// Date auto-advance
 document.getElementById("weekMM").addEventListener("input", function() { if(this.value.length===2) document.getElementById("weekDD").focus(); });
 document.getElementById("weekDD").addEventListener("input", function() { if(this.value.length===2) document.getElementById("weekYYYY").focus(); });
 
-// Auto-fill date
 var today = new Date();
 var pad = function(n) { return String(n).padStart(2,"0"); };
 document.getElementById("evalDate").value = pad(today.getMonth()+1) + " / " + pad(today.getDate()) + " / " + today.getFullYear();
@@ -532,48 +469,32 @@ document.getElementById("feedbackForm").addEventListener("submit", async functio
   e.preventDefault();
   var valid = true;
 
-  // Clear errors
   document.querySelectorAll(".field-error.show").forEach(function(el) { el.classList.remove("show"); });
   document.querySelectorAll(".invalid").forEach(function(el) { el.classList.remove("invalid"); });
   document.querySelectorAll(".rating-field.invalid").forEach(function(el) { el.classList.remove("invalid"); });
 
-  // Validate fields
   var checks = [
-    ["emailAddress","err-email"],
-    ["newHireName","err-name"],
-    ["districtManager","err-dm"],
-    ["mentor","err-mentor"],
-    ["assessmentScore","err-score"],
-    ["strengths","err-strengths"],
+    ["emailAddress","err-email"],["newHireName","err-name"],
+    ["districtManager","err-dm"],["mentor","err-mentor"],
+    ["assessmentScore","err-score"],["strengths","err-strengths"],
     ["improvements","err-improve"]
   ];
   checks.forEach(function(pair) {
     var el = document.getElementById(pair[0]);
-    if (!el.value.trim()) {
-      el.classList.add("invalid");
-      document.getElementById(pair[1]).classList.add("show");
-      valid = false;
-    }
+    if (!el.value.trim()) { el.classList.add("invalid"); document.getElementById(pair[1]).classList.add("show"); valid = false; }
   });
 
-  // Validate overall rating
-  if (!document.querySelector('input[name="entry.993634690"]:checked')) {
+  if (!document.querySelector('input[name="overallRating"]:checked')) {
     document.getElementById("err-overall").classList.add("show");
     document.getElementById("rf-overall").classList.add("invalid");
     valid = false;
   }
 
-  // Validate required competencies
   var missingComp = false;
   competencies.forEach(function(c) {
-    if (c.required && !document.querySelector('input[name="' + c.entry + '"]:checked')) {
-      missingComp = true;
-    }
+    if (c.required && !document.querySelector('input[name="' + c.id + '"]:checked')) missingComp = true;
   });
-  if (missingComp) {
-    document.getElementById("err-comp").classList.add("show");
-    valid = false;
-  }
+  if (missingComp) { document.getElementById("err-comp").classList.add("show"); valid = false; }
 
   if (!valid) {
     var first = document.querySelector(".field-error.show, .rating-field.invalid");
@@ -581,25 +502,32 @@ document.getElementById("feedbackForm").addEventListener("submit", async functio
     return;
   }
 
-  // Gather values
-  var mm   = document.getElementById("weekMM").value;
-  var dd   = document.getElementById("weekDD").value;
+  var mm = document.getElementById("weekMM").value;
+  var dd = document.getElementById("weekDD").value;
   var yyyy = document.getElementById("weekYYYY").value;
-  var name     = document.getElementById("newHireName").value.trim();
-  var dm       = document.getElementById("districtManager").value.trim();
-  var mentor   = document.getElementById("mentor").value.trim();
-  var score    = document.getElementById("assessmentScore").value.trim();
-  var strengths= document.getElementById("strengths").value.trim();
-  var improve  = document.getElementById("improvements").value.trim();
-  var weekOf   = (mm && dd && yyyy) ? mm+"/"+dd+"/"+yyyy : "Not specified";
-  var overallVal = document.querySelector('input[name="entry.993634690"]:checked').value;
+  var weekOf = (mm && dd && yyyy) ? mm+"/"+dd+"/"+yyyy : "Not specified";
+  var overallVal = document.querySelector('input[name="overallRating"]:checked').value;
+  var name = document.getElementById("newHireName").value.trim();
 
-  var sum = 0; var count = 0;
+  var payload = {
+    email: document.getElementById("emailAddress").value.trim(),
+    weekOf: weekOf,
+    newHireName: name,
+    districtManager: document.getElementById("districtManager").value.trim(),
+    assessmentScore: document.getElementById("assessmentScore").value.trim(),
+    mentor: document.getElementById("mentor").value.trim(),
+    overallRating: overallVal,
+    strengths: document.getElementById("strengths").value.trim(),
+    improvements: document.getElementById("improvements").value.trim(),
+    comments: document.getElementById("comments").value.trim(),
+    evaluatorSig: document.getElementById("evaluatorSig").value.trim(),
+    evalDate: document.getElementById("evalDate").value.trim()
+  };
+
   competencies.forEach(function(c) {
-    var el = document.querySelector('input[name="' + c.entry + '"]:checked');
-    if (el) { sum += parseInt(el.value); count++; }
+    var el = document.querySelector('input[name="' + c.id + '"]:checked');
+    payload[c.id] = el ? el.value : "";
   });
-  var avg = count > 0 ? (sum/count).toFixed(1) : "N/A";
 
   var submitBtn = document.querySelector(".btn-submit");
   var errorBanner = document.getElementById("submitErrorBanner");
@@ -608,41 +536,27 @@ document.getElementById("feedbackForm").addEventListener("submit", async functio
   submitBtn.disabled = true;
 
   try {
-    // Build Google Forms params
-    var params = new URLSearchParams();
-    params.append("emailAddress", document.getElementById("emailAddress").value.trim());
-    params.append("entry.461920026_month", mm || "0");
-    params.append("entry.461920026_day",   dd || "0");
-    params.append("entry.461920026_year",  yyyy || "0");
-    params.append("entry.824641835",  name);
-    params.append("entry.1297536388", dm);
-    params.append("entry.132081655",  score);
-    params.append("entry.1956939294", mentor);
-    params.append("entry.993634690",  overallVal);
-    params.append("entry.1891935047", strengths);
-    params.append("entry.1026981949", improve);
-
-    // All competencies
-    competencies.forEach(function(c) {
-      var el = document.querySelector('input[name="' + c.entry + '"]:checked');
-      if (el) params.append(c.entry, el.value);
-    });
-
-    await fetch("https://docs.google.com/forms/d/e/1FAIpQLSfUMwk6pQ_AMROL6JcpOLEtr2Lg143rb2EL5Nxzkko1n_Cp7w/formResponse", {
+    await fetch(SCRIPT_URL, {
       method: "POST",
       mode: "no-cors",
-      headers: {"Content-Type": "application/x-www-form-urlencoded"},
-      body: params.toString()
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify(payload)
     });
 
-    // Show success
+    var sum = 0; var count = 0;
+    competencies.forEach(function(c) {
+      var el = document.querySelector('input[name="' + c.id + '"]:checked');
+      if (el) { sum += parseInt(el.value); count++; }
+    });
+    var avg = count > 0 ? (sum/count).toFixed(1) : "N/A";
+
     document.getElementById("successSummary").innerHTML =
       '<div class="success-row"><span class="sk">New Hire</span><span class="sv">' + name + '</span></div>' +
       '<div class="success-row"><span class="sk">Week Of</span><span class="sv">' + weekOf + '</span></div>' +
       '<div class="success-row"><span class="sk">Overall Rating</span><span class="sv">' + overallVal + ' – ' + ratingLabels[parseInt(overallVal)] + '</span></div>' +
       '<div class="success-row"><span class="sk">Avg Competency</span><span class="sv">' + avg + ' / 5.0</span></div>' +
-      '<div class="success-row"><span class="sk">District Manager</span><span class="sv">' + dm + '</span></div>' +
-      '<div class="success-row"><span class="sk">Mentor</span><span class="sv">' + mentor + '</span></div>';
+      '<div class="success-row"><span class="sk">District Manager</span><span class="sv">' + document.getElementById("districtManager").value.trim() + '</span></div>' +
+      '<div class="success-row"><span class="sk">Mentor</span><span class="sv">' + document.getElementById("mentor").value.trim() + '</span></div>';
     document.getElementById("successOverlay").classList.add("active");
 
   } catch(err) {
