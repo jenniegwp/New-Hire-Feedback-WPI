@@ -426,7 +426,7 @@
 </div>
 
 <script>
-const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbz3fBGINLF7RjRpS9e4_JLBCwy_m_r4Hlh-hAQgIy2E1qqKYbtg8E5iP5MzvvEli_74LQ/exec";
+const FORMSPREE_URL = "https://formspree.io/f/xeajbqrb";
 
 const competencies = [
   { id:"jobKnowledge",      label:"Job Knowledge",                       desc:"Understands job requirements and responsibilities",                   required:true  },
@@ -512,30 +512,31 @@ document.getElementById("feedbackForm").addEventListener("submit", function(e) {
   submitBtn.textContent = "Sending…";
   submitBtn.disabled = true;
 
-  // Build GET params
-  var params = new URLSearchParams();
-  params.append("email", document.getElementById("emailAddress").value.trim());
-  params.append("weekOf", weekOf);
-  params.append("newHireName", name);
-  params.append("districtManager", dm);
-  params.append("assessmentScore", document.getElementById("assessmentScore").value.trim());
-  params.append("mentor", mentor);
-  params.append("overallRating", overallVal);
-  params.append("strengths", document.getElementById("strengths").value.trim());
-  params.append("improvements", document.getElementById("improvements").value.trim());
-  params.append("comments", document.getElementById("comments").value.trim());
-  params.append("evaluatorSig", document.getElementById("evaluatorSig").value.trim());
-  params.append("evalDate", document.getElementById("evalDate").value.trim());
-
+  var formData = new FormData();
+  formData.append("email", document.getElementById("emailAddress").value.trim());
+  formData.append("weekOf", weekOf);
+  formData.append("newHireName", name);
+  formData.append("districtManager", dm);
+  formData.append("assessmentScore", document.getElementById("assessmentScore").value.trim());
+  formData.append("mentor", mentor);
+  formData.append("overallRating", overallVal);
+  formData.append("strengths", document.getElementById("strengths").value.trim());
+  formData.append("improvements", document.getElementById("improvements").value.trim());
+  formData.append("comments", document.getElementById("comments").value.trim());
+  formData.append("evaluatorSig", document.getElementById("evaluatorSig").value.trim());
+  formData.append("evalDate", document.getElementById("evalDate").value.trim());
   competencies.forEach(function(c) {
     var el = document.querySelector('input[name="' + c.id + '"]:checked');
-    params.append(c.id, el ? el.value : "");
+    formData.append(c.id, el ? el.value : "");
   });
 
-  // Use fetch with no-cors GET request
-  fetch(SCRIPT_URL + "?" + params.toString(), {
-    method: "GET",
-    mode: "no-cors"
+  fetch(FORMSPREE_URL, {
+    method: "POST",
+    body: formData,
+    headers: { "Accept": "application/json" }
+  }).then(function(response) {
+    if (!response.ok) { throw new Error("Form error"); }
+    return response.json();
   }).then(function() {
     var sum = 0; var count = 0;
     competencies.forEach(function(c) {
