@@ -535,8 +535,18 @@ document.getElementById("feedbackForm").addEventListener("submit", function(e) {
     templateParams[c.id] = el ? el.value : "0";
   });
 
-  emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams, EMAILJS_PUBLIC_KEY)
-  .then(function() {
+  fetch("https://api.emailjs.com/api/v1.0/email/send", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      service_id: EMAILJS_SERVICE_ID,
+      template_id: EMAILJS_TEMPLATE_ID,
+      user_id: EMAILJS_PUBLIC_KEY,
+      template_params: templateParams
+    })
+  }).then(function(response) {
+    if (!response.ok) { throw new Error("EmailJS error " + response.status); }
+  }).then(function() {
     var sum = 0; var count = 0;
     competencies.forEach(function(c) {
       var el = document.querySelector('input[name="' + c.id + '"]:checked');
