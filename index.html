@@ -285,7 +285,7 @@
   <form id="feedbackForm" novalidate>
     <div class="section">
       <div class="section-eyebrow">Section 01</div>
-      <div class="section-h2">New Hire <strong>Details</strong></div>
+      <div class="section-h2">New Hire Details</div>
       <div class="field-group">
         <div class="field-label">Evaluator Email <span style="color:var(--wpi-cyan)">*</span></div>
         <input type="email" id="emailAddress" placeholder="your@ussc.com" required>
@@ -325,7 +325,7 @@
 
     <div class="section">
       <div class="section-eyebrow">Section 02</div>
-      <div class="section-h2">Overall <strong>Performance</strong></div>
+      <div class="section-h2">Overall Performance</div>
       <div class="rating-scale-box">
         <div class="rating-scale-title">Rating Scale</div>
         <div class="rating-scale-row"><span class="rs-num">1</span><span class="rs-label">Unsatisfactory</span><span class="rs-desc">Does not meet basic expectations; needs significant improvement.</span></div>
@@ -349,7 +349,7 @@
 
     <div class="section">
       <div class="section-eyebrow">Section 03</div>
-      <div class="section-h2">Strengths &amp; <strong>Top Areas</strong></div>
+      <div class="section-h2">Strengths &amp; Top Areas</div>
       <div class="field-group">
         <div class="rating-question">What are the new hire's strongest areas? <span class="required">*</span></div>
         <textarea id="strengths" placeholder="Describe the areas where this new hire excels…" required></textarea>
@@ -359,7 +359,7 @@
 
     <div class="section">
       <div class="section-eyebrow">Section 04</div>
-      <div class="section-h2">Area for <strong>Improvement</strong></div>
+      <div class="section-h2">Area for Improvement</div>
       <div class="field-group">
         <div class="rating-question">Where could the new hire improve? <span class="required">*</span></div>
         <textarea id="improvements" placeholder="Identify development areas and coaching opportunities…" required></textarea>
@@ -369,7 +369,7 @@
 
     <div class="section">
       <div class="section-eyebrow">Section 05</div>
-      <div class="section-h2">Skills &amp; <strong>Competencies</strong></div>
+      <div class="section-h2">Skills &amp; Competencies</div>
       <div class="rating-question" style="margin-bottom:16px;">Rate the new hire in each area using the 1–5 scale.</div>
       <table class="competency-table">
         <thead><tr><th>Competency</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th></tr></thead>
@@ -380,7 +380,7 @@
 
     <div class="section">
       <div class="section-eyebrow">Section 06</div>
-      <div class="section-h2">Additional <strong>Comments</strong></div>
+      <div class="section-h2">Additional Comments</div>
       <div class="field-group">
         <textarea id="comments" placeholder="Any other observations or context for this review period…"></textarea>
       </div>
@@ -426,7 +426,9 @@
 </div>
 
 <script>
-const FORMSPREE_URL = "https://formspree.io/f/xeajbqrb";
+const EMAILJS_SERVICE_ID = "service_kqrkiro";
+const EMAILJS_TEMPLATE_ID = "ipb408x";
+const EMAILJS_PUBLIC_KEY = "Of2ENTdsvGpuj4yIR";
 
 const competencies = [
   { id:"jobKnowledge",      label:"Job Knowledge",                       desc:"Understands job requirements and responsibilities",                   required:true  },
@@ -512,32 +514,27 @@ document.getElementById("feedbackForm").addEventListener("submit", function(e) {
   submitBtn.textContent = "Sending…";
   submitBtn.disabled = true;
 
-  var formData = new FormData();
-  formData.append("email", document.getElementById("emailAddress").value.trim());
-  formData.append("weekOf", weekOf);
-  formData.append("newHireName", name);
-  formData.append("districtManager", dm);
-  formData.append("assessmentScore", document.getElementById("assessmentScore").value.trim());
-  formData.append("mentor", mentor);
-  formData.append("overallRating", overallVal);
-  formData.append("strengths", document.getElementById("strengths").value.trim());
-  formData.append("improvements", document.getElementById("improvements").value.trim());
-  formData.append("comments", document.getElementById("comments").value.trim());
-  formData.append("evaluatorSig", document.getElementById("evaluatorSig").value.trim());
-  formData.append("evalDate", document.getElementById("evalDate").value.trim());
+  var templateParams = {
+    email: document.getElementById("emailAddress").value.trim(),
+    weekOf: weekOf,
+    newHireName: name,
+    districtManager: dm,
+    assessmentScore: document.getElementById("assessmentScore").value.trim(),
+    mentor: mentor,
+    overallRating: overallVal,
+    strengths: document.getElementById("strengths").value.trim(),
+    improvements: document.getElementById("improvements").value.trim(),
+    comments: document.getElementById("comments").value.trim(),
+    evaluatorSig: document.getElementById("evaluatorSig").value.trim(),
+    evalDate: document.getElementById("evalDate").value.trim()
+  };
   competencies.forEach(function(c) {
     var el = document.querySelector('input[name="' + c.id + '"]:checked');
-    formData.append(c.id, el ? el.value : "");
+    templateParams[c.id] = el ? el.value : "0";
   });
 
-  fetch(FORMSPREE_URL, {
-    method: "POST",
-    body: formData,
-    headers: { "Accept": "application/json" }
-  }).then(function(response) {
-    if (!response.ok) { throw new Error("Form error"); }
-    return response.json();
-  }).then(function() {
+  emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams, EMAILJS_PUBLIC_KEY)
+  .then(function() {
     var sum = 0; var count = 0;
     competencies.forEach(function(c) {
       var el = document.querySelector('input[name="' + c.id + '"]:checked');
@@ -555,9 +552,11 @@ document.getElementById("feedbackForm").addEventListener("submit", function(e) {
     document.getElementById("successOverlay").classList.add("active");
     submitBtn.textContent = "Submit Feedback";
     submitBtn.disabled = false;
-  }).catch(function() {
-    // no-cors means we still show success — the request went through
-    document.getElementById("successOverlay").classList.add("active");
+  }, function(error) {
+    console.error("EmailJS error:", error);
+    errorBanner = document.getElementById("submitErrorBanner");
+    errorBanner.innerHTML = "<strong>Error sending email</strong> — please try again.";
+    errorBanner.style.display = "block";
     submitBtn.textContent = "Submit Feedback";
     submitBtn.disabled = false;
   });
@@ -573,5 +572,6 @@ function resetForm() {
   window.scrollTo({top:0,behavior:"smooth"});
 }
 </script>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 </body>
 </html>
