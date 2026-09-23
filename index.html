@@ -431,6 +431,7 @@ emailjs.init("Of2ENTdsvGpuj4yIR");
 const EMAILJS_SERVICE_ID = "service_kqrkiro";
 const EMAILJS_TEMPLATE_ID = "ipb408x";
 const EMAILJS_PUBLIC_KEY = "Of2ENTdsvGpuj4yIR";
+const EMAILJS_PRIVATE_KEY = "4JOdXTTCNAnturp4Kp9_7";
 
 const competencies = [
   { id:"jobKnowledge",      label:"Job Knowledge",                       desc:"Understands job requirements and responsibilities",                   required:true  },
@@ -542,6 +543,7 @@ document.getElementById("feedbackForm").addEventListener("submit", function(e) {
       service_id: EMAILJS_SERVICE_ID,
       template_id: EMAILJS_TEMPLATE_ID,
       user_id: EMAILJS_PUBLIC_KEY,
+      accessToken: EMAILJS_PRIVATE_KEY,
       template_params: templateParams
     })
   }).then(function(response) {
