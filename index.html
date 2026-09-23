@@ -429,7 +429,7 @@
 <script>
 emailjs.init("Of2ENTdsvGpuj4yIR");
 const EMAILJS_SERVICE_ID = "service_kqrkiro";
-const EMAILJS_TEMPLATE_ID = "ipb408x";
+const EMAILJS_TEMPLATE_ID = "template_0q6j2cu";
 const EMAILJS_PUBLIC_KEY = "Of2ENTdsvGpuj4yIR";
 const EMAILJS_PRIVATE_KEY = "4JOdXTTCNAnturp4Kp9_7";
 
@@ -518,6 +518,7 @@ document.getElementById("feedbackForm").addEventListener("submit", function(e) {
   submitBtn.disabled = true;
 
   var templateParams = {
+    name: document.getElementById("newHireName").value.trim(),
     email: document.getElementById("emailAddress").value.trim(),
     weekOf: weekOf,
     newHireName: name,
